@@ -35,22 +35,22 @@ jobs:
           distribution: 'zulu'
           cache: gradle
 
-      - name: Publish to Maven
-        if: steps.properties.outputs.publish_to_maven == 'true' && steps.properties.outputs.publish_to_local_maven == 'true'
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: |
-            publish
-            -P${{ steps.properties.outputs.maven_name }}Username=${{ secrets.MAVEN_USER }}
-            -P${{ steps.properties.outputs.maven_name }}Password=${{ secrets.MAVEN_PASS }}
+      # - name: Publish to Maven
+      #   if: steps.properties.outputs.publish_to_maven == 'true' && steps.properties.outputs.publish_to_local_maven == 'true'
+      #   uses: gradle/gradle-build-action@v2
+      #   with:
+      #     arguments: |
+      #       publish
+      #       -P${{ steps.properties.outputs.maven_name }}Username=${{ secrets.MAVEN_USER }}
+      #       -P${{ steps.properties.outputs.maven_name }}Password=${{ secrets.MAVEN_PASS }}
 
-      - name: Publish to CurseForge
-        if: steps.properties.outputs.publish_to_curseforge == 'true'
-        uses: gradle/gradle-build-action@v2
-        env:
-          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
-        with:
-          arguments: curseforge
+      # - name: Publish to CurseForge
+      #   if: steps.properties.outputs.publish_to_curseforge == 'true'
+      #   uses: gradle/gradle-build-action@v2
+      #   env:
+      #     CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+      #   with:
+      #     arguments: curseforge
 
       - name: Publish to Modrinth
         if: steps.properties.outputs.publish_to_modrinth == 'true'
