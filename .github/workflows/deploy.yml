@@ -10,11 +10,6 @@ on:
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
-  workflow_call:
-    secrets:
-      MODRINTH_TOKEN:
-        description: 'The token to use for Modrinth authentication'
-        required: true
 
 jobs:
   build:
