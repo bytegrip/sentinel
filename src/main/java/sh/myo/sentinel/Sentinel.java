@@ -63,6 +63,9 @@ public class Sentinel {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         
         GameRegistry.registerWorldGenerator(new WorldGenThulium(), 0);
+        
+        GameRegistry.addSmelting(THULIUM_ORE_BLOCK, new ItemStack(THULIUM_ORE_ITEM), 0.7f);
+        GameRegistry.addSmelting(THULIUM_ORE_ITEM, new ItemStack(THULIUM_INGOT), 0.7f);
     }
 
     @Mod.EventBusSubscriber

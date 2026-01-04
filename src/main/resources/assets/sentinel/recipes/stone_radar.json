@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "SSS",
-    "R R",
+    "RRR",
     "RRR"
   ],
   "key": {
     "S": {
-      "item": "minecraft:stone"
+      "item": "minecraft:cobblestone"
     },
     "R": {
       "item": "sentinel:wooden_radar"

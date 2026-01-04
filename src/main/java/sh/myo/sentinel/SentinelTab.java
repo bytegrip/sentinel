@@ -40,6 +40,7 @@ public class SentinelTab extends CreativeTabs {
         items.add(new ItemStack(Sentinel.EMERALD_RADAR));
         items.add(new ItemStack(Sentinel.THULIUM_RADAR));
         
+        items.add(new ItemStack(Sentinel.DIMENSION_SCANNER));
         items.add(new ItemStack(Sentinel.SENTINEL_JAMMER));
     }
 }
