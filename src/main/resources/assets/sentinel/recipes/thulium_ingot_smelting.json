@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sentinel:thulium_ore_item"
+  },
+  "result": "sentinel:thulium_ingot",
+  "experience": 1.0,
+  "cookingtime": 36000
+}

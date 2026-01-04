@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TET",
+    "R R",
+    "RRR"
+  ],
+  "key": {
+    "T": {
+      "item": "sentinel:thulium_block"
+    },
+    "E": {
+      "item": "minecraft:emerald_block"
+    },
+    "R": {
+      "item": "sentinel:obsidian_radar"
+    }
+  },
+  "result": {
+    "item": "sentinel:emerald_radar"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "T": {
+      "item": "sentinel:thulium_ingot"
+    },
+    "E": {
+      "item": "sentinel:emerald_radar"
+    }
+  },
+  "result": {
+    "item": "sentinel:dimension_scanner",
+    "count": 1
+  }
+}

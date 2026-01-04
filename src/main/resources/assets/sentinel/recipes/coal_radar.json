@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "R R",
+    "RRR"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:coal_block"
+    },
+    "R": {
+      "item": "sentinel:stone_radar"
+    }
+  },
+  "result": {
+    "item": "sentinel:coal_radar"
+  }
+}

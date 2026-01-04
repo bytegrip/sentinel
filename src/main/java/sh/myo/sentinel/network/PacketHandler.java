@@ -14,5 +14,7 @@ public class PacketHandler {
     public static void registerPackets() {
         INSTANCE.registerMessage(PacketRequestPlayerPositions.Handler.class, PacketRequestPlayerPositions.class, packetId++, Side.SERVER);
         INSTANCE.registerMessage(PacketPlayerPositionsResponse.Handler.class, PacketPlayerPositionsResponse.class, packetId++, Side.CLIENT);
+        INSTANCE.registerMessage(PacketRequestDimensionData.Handler.class, PacketRequestDimensionData.class, packetId++, Side.SERVER);
+        INSTANCE.registerMessage(PacketDimensionDataResponse.Handler.class, PacketDimensionDataResponse.class, packetId++, Side.CLIENT);
     }
 }

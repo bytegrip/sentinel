@@ -9,8 +9,6 @@ import javax.annotation.Nullable;
 
 public class GuiHandler implements IGuiHandler {
 
-    // Test
-
     @Nullable
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -21,7 +19,13 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == 0) {
-            return new GuiSentinelRadar();
+            return new GuiSentinelRadar(player.getHeldItemMainhand());
+        } else if (ID == 1) {
+            return new GuiSentinelRadar(player.getHeldItemOffhand());
+        } else if (ID == 2) {
+            return new GuiDimensionScanner(player.getHeldItemMainhand());
+        } else if (ID == 3) {
+            return new GuiDimensionScanner(player.getHeldItemOffhand());
         }
         return null;
     }

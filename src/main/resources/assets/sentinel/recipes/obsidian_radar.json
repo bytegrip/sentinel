@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TOT",
+    "R R",
+    "RRR"
+  ],
+  "key": {
+    "T": {
+      "item": "sentinel:thulium_block"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "R": {
+      "item": "sentinel:diamond_radar"
+    }
+  },
+  "result": {
+    "item": "sentinel:obsidian_radar"
+  }
+}

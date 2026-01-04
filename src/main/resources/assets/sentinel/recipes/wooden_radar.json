@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WCW",
+    "CGC",
+    "WCW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:log",
+      "data": 32767
+    },
+    "C": {
+      "item": "minecraft:compass"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "sentinel:wooden_radar"
+  }
+}

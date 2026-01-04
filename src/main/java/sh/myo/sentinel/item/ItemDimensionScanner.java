@@ -11,21 +11,35 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import sh.myo.sentinel.Sentinel;
-import sh.myo.sentinel.Tags;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemSentinelRadar extends Item {
+public class ItemDimensionScanner extends Item {
 
-    private static final String NBT_FUEL = "ThuliumFuel";
-    public static final int MAX_FUEL = 32;
+    private static final String NBT_FUEL = "ScannerFuel";
+    private static final int MAX_FUEL = 256;
+    private static final int FUEL_PER_USE = 8;
 
-    public ItemSentinelRadar() {
-        setRegistryName(Tags.MOD_ID, "sentinel_radar");
-        setTranslationKey(Tags.MOD_ID + ".sentinel_radar");
-        setCreativeTab(sh.myo.sentinel.SentinelTab.INSTANCE);
+    public ItemDimensionScanner() {
         setMaxStackSize(1);
+        setRegistryName("dimension_scanner");
+        setTranslationKey("sentinel.dimension_scanner");
+        setCreativeTab(sh.myo.sentinel.SentinelTab.INSTANCE);
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        int fuel = getFuel(stack);
+        tooltip.add(TextFormatting.DARK_GRAY + "Cross-Dimensional Detection System");
+        tooltip.add(TextFormatting.GRAY + "Scans: " + TextFormatting.AQUA + "All Dimensions");
+        tooltip.add(TextFormatting.GRAY + "Accuracy: " + TextFormatting.AQUA + "80% " + TextFormatting.DARK_GRAY + "(20% error rate)");
+        tooltip.add(TextFormatting.GRAY + "Fuel: " + TextFormatting.AQUA + fuel + TextFormatting.DARK_GRAY + "/" + FUEL_PER_USE + " for 1 scan");
+        if (fuel >= FUEL_PER_USE) {
+            tooltip.add(TextFormatting.DARK_GRAY + "Right-click to scan dimensions");
+        } else {
+            tooltip.add(TextFormatting.RED + "No fuel - refill with Thulium Blocks");
+        }
     }
 
     @Override
@@ -33,13 +47,13 @@ public class ItemSentinelRadar extends Item {
         ItemStack stack = playerIn.getHeldItem(handIn);
         
         if (worldIn.isRemote) {
-            int guiId = handIn == EnumHand.MAIN_HAND ? 0 : 1;
+            int guiId = handIn == EnumHand.MAIN_HAND ? 2 : 3;
             playerIn.openGui(Sentinel.instance, guiId, worldIn, (int) playerIn.posX, (int) playerIn.posY, (int) playerIn.posZ);
         }
         
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
-    
+
     public static int getFuel(ItemStack stack) {
         NBTTagCompound nbt = stack.getTagCompound();
         if (nbt == null) {
@@ -59,23 +73,19 @@ public class ItemSentinelRadar extends Item {
     
     public static void consumeFuel(ItemStack stack) {
         int current = getFuel(stack);
-        if (current > 0) {
-            setFuel(stack, current - 1);
+        if (current >= FUEL_PER_USE) {
+            setFuel(stack, current - FUEL_PER_USE);
         }
     }
-    
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        int fuel = getFuel(stack);
-        tooltip.add(TextFormatting.DARK_GRAY + "Thulium-Powered Radar");
-        tooltip.add(TextFormatting.GRAY + "Fuel Cells: " + TextFormatting.DARK_GRAY + fuel + "/" + MAX_FUEL);
-        if (fuel > 0) {
-            tooltip.add(TextFormatting.DARK_GRAY + "Right-click to scan area");
-        } else {
-            tooltip.add(TextFormatting.RED + "No fuel - refill with Thulium");
-        }
+
+    public int getMaxFuel() {
+        return MAX_FUEL;
     }
-    
+
+    public int getFuelPerUse() {
+        return FUEL_PER_USE;
+    }
+
     @Override
     public boolean showDurabilityBar(ItemStack stack) {
         return true;

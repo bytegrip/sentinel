@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "R R",
+    "RRR"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "R": {
+      "item": "sentinel:iron_radar"
+    }
+  },
+  "result": {
+    "item": "sentinel:gold_radar"
+  }
+}

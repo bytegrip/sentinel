@@ -1,2 +1,16 @@
-item.sentinel.sentinel_radar.name=Sentinel Radar
+item.sentinel.wooden_radar.name=Wooden Radar
+item.sentinel.stone_radar.name=Stone Radar
+item.sentinel.coal_radar.name=Coal Radar
+item.sentinel.iron_radar.name=Iron Radar
+item.sentinel.gold_radar.name=Gold Radar
+item.sentinel.diamond_radar.name=Diamond Radar
+item.sentinel.obsidian_radar.name=Obsidian Radar
+item.sentinel.emerald_radar.name=Emerald Radar
+item.sentinel.thulium_radar.name=Thulium Radar
+item.sentinel.dimension_scanner.name=Dimension Scanner
+item.sentinel.radar_jammer.name=Radar Jammer
+item.sentinel.thulium_ore_item.name=Raw Thulium Ore
+item.sentinel.thulium_ingot.name=Thulium Ingot
+tile.sentinel.thulium_ore.name=Thulium Ore
+tile.sentinel.thulium_block.name=Thulium Block
 itemGroup.sentinel=Sentinel
