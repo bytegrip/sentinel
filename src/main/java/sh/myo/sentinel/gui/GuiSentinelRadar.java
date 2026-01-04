@@ -84,7 +84,7 @@ public class GuiSentinelRadar extends GuiScreen {
         int buttonX = guiLeft + RIGHT_PANEL_X + 5;
         int buttonY = guiTop + 138;
         int buttonWidth = (248 - 163) - 10;
-        this.buttonList.add(new GuiButton(BUTTON_LOOKUP, buttonX, buttonY, buttonWidth, 20, "SCAN"));
+        this.buttonList.add(new GuiButton(BUTTON_LOOKUP, buttonX, buttonY, buttonWidth, 20, "Scan"));
     }
 
     @Override
@@ -111,9 +111,12 @@ public class GuiSentinelRadar extends GuiScreen {
         int guiLeft = (this.width - GUI_WIDTH) / 2;
         int guiTop = (this.height - GUI_HEIGHT) / 2;
         
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(new net.minecraft.util.ResourceLocation("sentinel", "textures/gui/sentinel_radar.png"));
-        this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, TEXTURE_WIDTH, TEXTURE_HEIGHT);
+        drawRect(guiLeft, guiTop, guiLeft + GUI_WIDTH, guiTop + GUI_HEIGHT, 0xCC000000);
+        drawRect(guiLeft + 2, guiTop + 2, guiLeft + GUI_WIDTH - 2, guiTop + GUI_HEIGHT - 2, 0xFF1A1A1A);
+        
+        String title = "Sentinel Radar";
+        int titleWidth = this.fontRenderer.getStringWidth(title);
+        this.fontRenderer.drawString(title, guiLeft + GUI_WIDTH - titleWidth - 10, guiTop + 10, 0x00FFFF);
         
         int radarCenterX = guiLeft + RADAR_X + RADAR_SIZE / 2;
         int radarCenterY = guiTop + RADAR_Y + RADAR_SIZE / 2;

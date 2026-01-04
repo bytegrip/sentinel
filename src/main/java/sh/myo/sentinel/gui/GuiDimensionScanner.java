@@ -44,7 +44,7 @@ public class GuiDimensionScanner extends GuiScreen {
         int buttonX = guiLeft + 10;
         int buttonY = guiTop + GUI_HEIGHT - 30;
         int buttonWidth = GUI_WIDTH - 20;
-        this.buttonList.add(new GuiButton(BUTTON_SCAN, buttonX, buttonY, buttonWidth, 20, "SCAN DIMENSIONS"));
+        this.buttonList.add(new GuiButton(BUTTON_SCAN, buttonX, buttonY, buttonWidth, 20, "Scan Dimensions"));
     }
 
     @Override
